@@ -12,7 +12,7 @@ optimal_stop <- function(x) {
   
   # function to set the strategy
   # we take the first instance where y[i] (our relative rank) <= s[i] (our strategy vector).
-  strategy_erank <- function(n) {
+  strategy <- function(n) {
     
     c <- rep(NA,n) # min expected rank
     s <- rep(NA,n) # strategy
@@ -34,9 +34,9 @@ optimal_stop <- function(x) {
   }
   
   # set strategy
-  s <- strategy_erank(length(x))$s[-1] 
+  s <- strategy(length(x))$s[-1] 
   
-  # Function to compute sequential relative ranks, where smallest is best (i.e. first # looks best, how does 
+  # Function to compute sequential relative ranks, where largest is best (i.e. first # looks best, how does 
   # next number compare to previously seen numbers)
   relative_rank <- function(x) {
     
